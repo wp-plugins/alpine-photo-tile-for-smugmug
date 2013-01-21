@@ -3,7 +3,7 @@
  * Alpine PhotoTile for SmugMug: Shortcode
  *
  * @ Since 1.1.1
- * @ Updated 1.2.3.1
+ * @ Updated 1.2.3.2
  */
  
   function APTFSMUGbyTAP_shortcode_function( $atts ) {
@@ -21,6 +21,7 @@
     $id = rand(100, 1000);
     $bot->wid = 'id'.$id;
     $bot->options = $options;
+    $bot->updateGlobalOptions();
     $bot->photo_retrieval();
     
     $bot->enqueue_style_and_script();

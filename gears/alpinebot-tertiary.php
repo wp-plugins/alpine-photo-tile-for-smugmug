@@ -17,6 +17,22 @@ class PhotoTileForSmugMugBot extends PhotoTileForSmugMugBasic{
    public $curves;
    public $highlight;
    public $rel;
+   
+/**
+ *  Update global (non-widget) options
+ *  
+ *  @ Since 1.2.3.2
+ * ########################## TODO: replace get_option calls with $this->options ################
+ */
+  function updateGlobalOptions(){
+    $options = $this->get_all_options();
+    $defaults = $this->option_defaults(); 
+    foreach( $defaults as $name=>$info ){
+      if( !$info['widget'] && isset($options[$name]) ){
+        $this->options[$name] = $options[$name];
+      }
+    }
+  }
   
 /**
  *  Function for creating cache key
@@ -373,13 +389,17 @@ class PhotoTileForSmugMugBot extends PhotoTileForSmugMugBasic{
  *  Add Image Function
  *  
  *  @ Since 1.2.2
- *
+ *  @ Updated 1.2.3
  ** Possible change: place original image as 'alt' and load image as needed
  */
   function add_image($i,$css=""){
+    if( !isset( $this->options['general_disable_right_click'] ) ){
+      echo $this->options['general_disable_right_click'] = $this->get_option('general_disable_right_click');
+    }
+    $onContextMenu = ($this->options['general_disable_right_click']?'onContextMenu="return false;"':'');
     $this->out .= '<img id="'.$this->wid.'-tile-'.$i.'" class="AlpinePhotoTiles-image '.$this->shadow.' '.$this->border.' '.$this->curves.' '.$this->highlight.'" src="' . $this->results['image_urls'][$i] . '" ';
     $this->out .= 'title='."'". $this->results['image_captions'][$i] ."'".' alt='."'". $this->results['image_captions'][$i] ."' "; // Careful about caps with ""
-    $this->out .= 'border="0" hspace="0" vspace="0" style="'.$css.'"/>'; // Override the max-width set by theme
+    $this->out .= 'border="0" hspace="0" vspace="0" style="'.$css.'" '.$onContextMenu.' />'; // Override the max-width set by theme
   }
   
 /**

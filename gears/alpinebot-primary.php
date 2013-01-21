@@ -7,8 +7,8 @@ class PhotoTileForSmugMugBase {
   public $url;
   public $dir;
   public $cacheDir;
-  public $ver = '1.2.3';
-  public $vers = '1-2-3';
+  public $ver = '1.2.3.2';
+  public $vers = '1-2-3-2';
   public $domain = 'APTFSMUGbyTAP_domain';
   public $settings = 'alpine-photo-tile-for-smugmug-settings'; // All lowercase
   public $name = 'Alpine PhotoTile for SmugMug';
@@ -593,6 +593,16 @@ class PhotoTileForSmugMugBase {
         'widget' => true,
         'tab' => 'generator',
         'position' => 'bottom',
+        'default' => ''
+      ), 
+      'general_disable_right_click' => array(
+        'name' => 'general_disable_right_click',
+        'title' => 'Disable Right-Click: ',
+        'type' => 'checkbox',
+        'description' => 'Prevent visitors from right-clicking and downloading images.',
+        'since' => '1.2.3',
+        'tab' => 'plugin-settings',
+        'position' => 'top',
         'default' => ''
       ), 
       'general_loader' => array(

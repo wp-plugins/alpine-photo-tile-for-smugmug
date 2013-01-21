@@ -20,7 +20,7 @@ class Alpine_PhotoTile_for_SmugMug extends WP_Widget {
 /**
  * Widget
  *
- * @ Updated 1.2.3
+ * @ Updated 1.2.3.2
  */
 	function widget( $args, $options ) {
     $bot = $this->alpinebot;
@@ -28,6 +28,7 @@ class Alpine_PhotoTile_for_SmugMug extends WP_Widget {
     
     // Set Important Widget Options
     $bot->options = $options;
+    $bot->updateGlobalOptions();
     $bot->wid = $args["widget_id"];
     $bot->photo_retrieval();
     

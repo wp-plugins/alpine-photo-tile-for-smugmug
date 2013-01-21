@@ -387,6 +387,11 @@
           }
           galleryContainer.append(gallery);
           
+          // Prevent Right-Click
+          if( img.oncontextmenu ){
+            gallery.attr("oncontextmenu","return false;");
+          }
+          
         });  
 
         var allThumbs = s('.AlpinePhotoTiles-image-div',parent);
@@ -424,13 +429,17 @@
         }  
       }
       function addDiv(i){
-       if(s.browser.msie && !d.querySelector){
+        if(s.browser.msie && !d.querySelector){
           newDiv = s('<div id="'+parent.attr('id')+'-image-'+i+'" class="AlpinePhotoTiles-image-div" style='+"'"+'background:'+url+' no-repeat center center;'+"'"+'></div>');                
         }else{
           newDiv = s('<div id="'+parent.attr('id')+'-image-'+i+'" class="AlpinePhotoTiles-image-div"></div>');   
           newDiv.css({
             'background-image':url
           });  
+        }
+        // Prevent Right-Click
+        if( img.oncontextmenu ){
+          newDiv.attr("oncontextmenu","return false;");
         }
         
         newDivContainer = s('<div class="AlpinePhotoTiles-image-div-container '+theClasses+'"></div>');
