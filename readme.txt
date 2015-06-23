@@ -4,7 +4,7 @@ Donate link: thealpinepress.com
 Tags: photos, smugmug, smug mug, photostream, pictures, images, widget, sidebar, gallery, lightbox, fancybox, prettybox, colorbox
 Requires at least: 2.8
 Tested up to: 3.5
-Stable tag: 1.2.3.2
+Stable tag: 1.2.3.3
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -96,3 +96,6 @@ I am a one-man development team and I distribute these plugins for free, so plea
 
 = 1.2.3.2 =
 * Added option to disable right-clicking on images
+
+= 1.2.3.3 =
+* Pretty Photo Update
